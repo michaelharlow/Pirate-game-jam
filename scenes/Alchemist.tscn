@@ -1,16 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkpfwut8g54k4"]
+[gd_scene load_steps=6 format=3 uid="uid://bkpfwut8g54k4"]
 
-[ext_resource type="Texture2D" uid="uid://cxdx2w5mav2n6" path="res://assets/art/icon.svg" id="1_6towo"]
 [ext_resource type="Script" path="res://scripts/Character.gd" id="1_dygjn"]
+[ext_resource type="Resource" uid="uid://jsrm6r3mwfuy" path="res://resources/alchemist_shadow.tres" id="2_uqgfq"]
+[ext_resource type="Texture2D" uid="uid://cgo743g38bfjs" path="res://assets/art/Alchemist.png" id="3_4gni2"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pujus"]
+polygon = PackedVector2Array(75, -288.8, 75, -287.3, 100, -276.3, 100, -274.9, 116, -260.9, 116, -258.6, 123.1, -248, 124.8, -248, 148, -250.2, 148, -248.4, 160, -244.4, 160, -242.7, 176, -224.8, 176, -221.4, 181, -207.3, 181, -194.7, 174.5, -173.4, 191, -155.8, 191, -153.4, 203, -123.4, 203, -84.1, 199.4, -74, 197.8, -74, 191.8, -68, 181, -68, 181, -63.3, 169, -47, 166.8, -47, 163.8, -44, 149, -44, 132, -4.70001, 132, -1.70001, 108, 73.3, 108, 77.2, 97, 138.4, 97, 153, 95.1, 204, 95.9, 204, 96.9, 224, 113, 260.6, 113, 271.2, 110.6, 281, 108.9, 281, 100.7, 290, 84.4, 290, 69.5, 283, 64.9, 283, 57, 282.2, 39.1, 290, 0.600006, 290, -38.4, 272, -43.6, 272, -74.7, 283, -80.9, 283, -100, 284.1, -100, 282.1, -135.5, 262, -144.9, 262, -184, 271.5, -184, 269.4, -195, 265.4, -195, 263.8, -203, 255, -203, 194.8, -195.8, 112, -194.7, 112, -180.7, 36, -179.5, 36, -157.5, -49, -156.4, -49, -113.4, -166, -112.3, -166, -93.3, -208, -92.1, -208, -69.1, -245, -67.7, -245, -35.8, -274, -33.5, -274, -12.5, -286, -9.3, -286, 3.39999, -290, 66, -290)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhoof"]
 radius = 64.5368
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Alchemist" type="CharacterBody2D"]
 script = ExtResource("1_dygjn")
+shadow_info = ExtResource("2_uqgfq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6towo")
+light_mask = 3
+visibility_layer = 3
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_4gni2")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_pujus")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_fhoof")
+
+[node name="ChangeDirectionTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]
