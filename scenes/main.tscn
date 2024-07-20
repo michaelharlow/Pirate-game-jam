@@ -1,3 +1,56 @@
-[gd_scene format=3 uid="uid://ctht2u6agnlnw"]
+[gd_scene load_steps=4 format=3 uid="uid://ctht2u6agnlnw"]
+
+[ext_resource type="PackedScene" uid="uid://bkpfwut8g54k4" path="res://scenes/Alchemist.tscn" id="1_wygfh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lnnb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ypy5y"]
 
 [node name="Main" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_wygfh")]
+position = Vector2(1094, 616)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="WallBorderTop" type="StaticBody2D" parent="Walls"]
+physics_material_override = SubResource("PhysicsMaterial_2lnnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBorderTop"]
+position = Vector2(921, -1)
+rotation = 3.14159
+scale = Vector2(11.8892, 1)
+shape = SubResource("WorldBoundaryShape2D_ypy5y")
+
+[node name="WallBorderBottom" type="StaticBody2D" parent="Walls"]
+position = Vector2(1088, 648)
+rotation = -3.14159
+physics_material_override = SubResource("PhysicsMaterial_2lnnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBorderBottom"]
+position = Vector2(104, -432)
+rotation = 3.14159
+scale = Vector2(11.8892, 1)
+shape = SubResource("WorldBoundaryShape2D_ypy5y")
+
+[node name="WallBorderRight" type="StaticBody2D" parent="Walls"]
+position = Vector2(1154, -170)
+rotation = 1.5708
+physics_material_override = SubResource("PhysicsMaterial_2lnnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBorderRight"]
+position = Vector2(686, -765)
+rotation = 3.14159
+scale = Vector2(11.8892, 1)
+shape = SubResource("WorldBoundaryShape2D_ypy5y")
+
+[node name="Wall Border4" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 802)
+rotation = -1.5708
+physics_material_override = SubResource("PhysicsMaterial_2lnnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall Border4"]
+position = Vector2(462, -1)
+rotation = 3.14159
+scale = Vector2(11.8892, 1)
+shape = SubResource("WorldBoundaryShape2D_ypy5y")
