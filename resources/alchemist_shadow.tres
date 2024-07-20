@@ -6,3 +6,4 @@
 script = ExtResource("1_mmgwl")
 object_name = "Alchemist"
 object_height = 6.0
+shadow_shape = PackedVector2Array()

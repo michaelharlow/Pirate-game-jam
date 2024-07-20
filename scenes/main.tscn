@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctht2u6agnlnw"]
+[gd_scene load_steps=6 format=3 uid="uid://ctht2u6agnlnw"]
 
 [ext_resource type="PackedScene" uid="uid://bkpfwut8g54k4" path="res://scenes/Alchemist.tscn" id="1_wygfh"]
 [ext_resource type="Texture2D" uid="uid://b3odfnxib1x2" path="res://assets/Light Texture.png" id="2_n16o7"]
+[ext_resource type="PackedScene" uid="uid://pv52sqrinjvx" path="res://scenes/box.tscn" id="3_uob1w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lnnb"]
 
@@ -20,6 +21,7 @@ position = Vector2(804, 514)
 [node name="Walls" type="Node" parent="."]
 
 [node name="WallBorderTop" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 14)
 physics_material_override = SubResource("PhysicsMaterial_2lnnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBorderTop"]
@@ -29,7 +31,7 @@ scale = Vector2(11.8892, 1)
 shape = SubResource("WorldBoundaryShape2D_ypy5y")
 
 [node name="WallBorderBottom" type="StaticBody2D" parent="Walls"]
-position = Vector2(1088, 648)
+position = Vector2(1094, 642)
 rotation = -3.14159
 physics_material_override = SubResource("PhysicsMaterial_2lnnb")
 
@@ -40,7 +42,7 @@ scale = Vector2(11.8892, 1)
 shape = SubResource("WorldBoundaryShape2D_ypy5y")
 
 [node name="WallBorderRight" type="StaticBody2D" parent="Walls"]
-position = Vector2(1154, -170)
+position = Vector2(1136, -170)
 rotation = 1.5708
 physics_material_override = SubResource("PhysicsMaterial_2lnnb")
 
@@ -51,7 +53,7 @@ scale = Vector2(11.8892, 1)
 shape = SubResource("WorldBoundaryShape2D_ypy5y")
 
 [node name="Wall Border4" type="StaticBody2D" parent="Walls"]
-position = Vector2(0, 802)
+position = Vector2(16, 802)
 rotation = -1.5708
 physics_material_override = SubResource("PhysicsMaterial_2lnnb")
 
@@ -62,8 +64,20 @@ scale = Vector2(11.8892, 1)
 shape = SubResource("WorldBoundaryShape2D_ypy5y")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(627, 268)
+position = Vector2(735, 322)
 energy = 3.31
 shadow_enabled = true
 texture = ExtResource("2_n16o7")
-texture_scale = 15.53
+texture_scale = 6.96
+
+[node name="Box" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(423, 402)
+
+[node name="Box2" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(735, 288)
+
+[node name="Box3" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(761, 771)
+
+[node name="Box4" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(1070, 512)

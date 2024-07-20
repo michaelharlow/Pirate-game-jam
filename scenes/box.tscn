@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://pv52sqrinjvx"]
+
+[ext_resource type="Texture2D" uid="uid://cxdx2w5mav2n6" path="res://assets/art/icon.svg" id="1_myotc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcvu2"]
+size = Vector2(128, 128)
+
+[node name="Box" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 9.182
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_myotc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rcvu2")
