@@ -1,16 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://pv52sqrinjvx"]
+[gd_scene load_steps=5 format=3 uid="uid://pv52sqrinjvx"]
 
+[ext_resource type="Script" path="res://scenes/box.gd" id="1_c6xvk"]
 [ext_resource type="Texture2D" uid="uid://cxdx2w5mav2n6" path="res://assets/art/icon.svg" id="1_myotc"]
+[ext_resource type="Resource" uid="uid://dpdntwfysyfrr" path="res://resources/box_shadow.tres" id="2_aqfif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcvu2"]
 size = Vector2(128, 128)
 
 [node name="Box" type="RigidBody2D"]
 gravity_scale = 0.0
-linear_damp = 9.182
+script = ExtResource("1_c6xvk")
+shadow_info = ExtResource("2_aqfif")
+
+[node name="ObjectCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rcvu2")
+
+[node name="ShadowAnchor" type="Node2D" parent="."]
+
+[node name="ShadowTransform" type="Node2D" parent="ShadowAnchor"]
+
+[node name="Shadow" type="Sprite2D" parent="ShadowAnchor/ShadowTransform"]
+modulate = Color(0, 0, 0, 0.45098)
+show_behind_parent = true
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-236, -16)
+texture = ExtResource("1_myotc")
+centered = false
+
+[node name="ShadowArea2D" type="Area2D" parent="ShadowAnchor/ShadowTransform"]
+
+[node name="ShadowCollisionShape" type="CollisionPolygon2D" parent="ShadowAnchor/ShadowTransform/ShadowArea2D"]
+position = Vector2(-236, -16)
+polygon = PackedVector2Array(128, 123.3, 128, 3, 124.3, -1, 4, -1, 0, 2.7, 0, 123.3, 4, 126.5, 124, 127)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_myotc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rcvu2")
