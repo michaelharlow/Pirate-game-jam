@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite_2d = $Sprite2D
 @onready var change_direction_timer = $ChangeDirectionTimer
+@onready var shadow = $Shadow
 
 @export var speed: float = 400.0
 @export var acceleration: float = 10.0
@@ -11,6 +12,10 @@ extends CharacterBody2D
 var direction : Vector2 = Vector2(0.5,0.5)
 
 
+func _ready() -> void:
+	add_to_group("boxes")
+
+
 func _physics_process(delta):
 	# Handle Movement
 	velocity.x = move_toward(velocity.x, speed * direction.x, acceleration * delta * 100)
@@ -18,8 +23,10 @@ func _physics_process(delta):
 	
 	if direction.x < 0:
 		sprite_2d.scale.x = lerp(sprite_2d.scale.x, -0.25, delta * flip_speed)
+		shadow.flip_h = true
 	else:
 		sprite_2d.scale.x = lerp(sprite_2d.scale.x, 0.25, delta * flip_speed)
+		shadow.flip_h = false
 	
 	move_and_slide()
 

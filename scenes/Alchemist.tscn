@@ -4,12 +4,12 @@
 [ext_resource type="Resource" uid="uid://jsrm6r3mwfuy" path="res://resources/alchemist_shadow.tres" id="2_uqgfq"]
 [ext_resource type="Texture2D" uid="uid://cgo743g38bfjs" path="res://assets/art/Alchemist.png" id="3_4gni2"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pujus"]
-polygon = PackedVector2Array(104, 64, 104, 80, 92, 140, 88, 176, 92, 216, 96, 236, 108, 256, 108, 268, 108, 276, 100, 288, 88, 288, 76, 284, 60, 280, 48, 284, 32, 292, 0.600006, 290, -38.4, 272, -43.6, 272, -74.7, 283, -80.9, 283, -100, 282.1, -135.5, 262, -144.9, 262, -176, 268, -188, 264, -196, 260, -200, 248, -200, 192, -188, 108)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aj7p"]
 radius = 38.5416
 height = 138.513
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3rjx"]
+size = Vector2(127, 127)
 
 [node name="Alchemist" type="CharacterBody2D"]
 motion_mode = 1
@@ -23,10 +23,6 @@ visibility_layer = 3
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_4gni2")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
-show_behind_parent = true
-occluder = SubResource("OccluderPolygon2D_pujus")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -1)
@@ -35,5 +31,20 @@ shape = SubResource("CapsuleShape2D_6aj7p")
 
 [node name="ChangeDirectionTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.584314)
+show_behind_parent = true
+position = Vector2(-15, 54)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_4gni2")
+offset = Vector2(48, 291.435)
+flip_v = true
+
+[node name="ShadowArea" type="Area2D" parent="Shadow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow/ShadowArea"]
+position = Vector2(0.5, 64.5)
+shape = SubResource("RectangleShape2D_j3rjx")
 
 [connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]
