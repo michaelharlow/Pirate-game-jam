@@ -3,13 +3,11 @@
 [ext_resource type="Script" path="res://scripts/Alchemist.gd" id="1_vi4nl"]
 [ext_resource type="Resource" uid="uid://jsrm6r3mwfuy" path="res://resources/alchemist_shadow.tres" id="2_uqgfq"]
 [ext_resource type="Texture2D" uid="uid://cgo743g38bfjs" path="res://assets/art/Alchemist.png" id="3_4gni2"]
+[ext_resource type="PackedScene" uid="uid://dbccu3anyj57e" path="res://scenes/shadow.tscn" id="4_kg5ry"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aj7p"]
 radius = 38.5416
 height = 138.513
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3rjx"]
-size = Vector2(127, 127)
 
 [node name="Alchemist" type="CharacterBody2D"]
 motion_mode = 1
@@ -32,19 +30,12 @@ shape = SubResource("CapsuleShape2D_6aj7p")
 [node name="ChangeDirectionTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.584314)
-show_behind_parent = true
-position = Vector2(-15, 54)
+[node name="Shadow" parent="." instance=ExtResource("4_kg5ry")]
+position = Vector2(-11.3453, 63.9642)
+rotation = 0.195582
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_4gni2")
-offset = Vector2(48, 291.435)
+offset = Vector2(46.6158, 261.904)
 flip_v = true
-
-[node name="ShadowArea" type="Area2D" parent="Shadow"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow/ShadowArea"]
-position = Vector2(0.5, 64.5)
-shape = SubResource("RectangleShape2D_j3rjx")
 
 [connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]

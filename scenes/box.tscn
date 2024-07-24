@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/box.gd" id="1_c6xvk"]
 [ext_resource type="Texture2D" uid="uid://cxdx2w5mav2n6" path="res://assets/art/icon.svg" id="1_myotc"]
-[ext_resource type="Resource" uid="uid://dpdntwfysyfrr" path="res://resources/box_shadow.tres" id="2_aqfif"]
+[ext_resource type="Resource" uid="uid://brqp52au3rpul" path="res://resources/box_shadow.tres" id="2_aqfif"]
+[ext_resource type="PackedScene" uid="uid://dbccu3anyj57e" path="res://scenes/shadow.tscn" id="4_xnqay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcvu2"]
 size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q424s"]
-size = Vector2(127, 127)
 
 [node name="Box" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -19,16 +17,7 @@ object_sprite = ExtResource("1_myotc")
 [node name="ObjectCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rcvu2")
 
-[node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.584314)
-position = Vector2(0, 62)
-offset = Vector2(0, 64)
-
-[node name="ShadowArea" type="Area2D" parent="Shadow"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow/ShadowArea"]
-position = Vector2(0.5, 64.5)
-shape = SubResource("RectangleShape2D_q424s")
+[node name="Shadow" parent="." instance=ExtResource("4_xnqay")]
 
 [node name="ObjectSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_myotc")

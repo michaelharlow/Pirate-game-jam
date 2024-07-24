@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShadowInfo" load_steps=2 format=3 uid="uid://dpdntwfysyfrr"]
+[gd_resource type="Resource" script_class="ShadowInfo" load_steps=2 format=3 uid="uid://brqp52au3rpul"]
 
 [ext_resource type="Script" path="res://scripts/shadow_info.gd" id="1_wwefo"]
 

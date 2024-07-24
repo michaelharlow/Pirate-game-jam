@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctht2u6agnlnw"]
+[gd_scene load_steps=7 format=3 uid="uid://ctht2u6agnlnw"]
 
 [ext_resource type="Script" path="res://scripts/Shadow Controller.gd" id="1_ss4xy"]
 [ext_resource type="PackedScene" uid="uid://bkpfwut8g54k4" path="res://scenes/Alchemist.tscn" id="1_wygfh"]
 [ext_resource type="Texture2D" uid="uid://b3odfnxib1x2" path="res://assets/Light Texture.png" id="2_n16o7"]
 [ext_resource type="PackedScene" uid="uid://pv52sqrinjvx" path="res://scenes/box.tscn" id="3_uob1w"]
-[ext_resource type="Texture2D" uid="uid://cxdx2w5mav2n6" path="res://assets/art/icon.svg" id="5_u4bm3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lnnb"]
 
@@ -21,12 +20,24 @@ offset_bottom = 1141.0
 mouse_filter = 2
 color = Color(0.470588, 0.470588, 0.470588, 1)
 
+[node name="LineA" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 0, 80)
+
+[node name="LineB" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 80, 60, 80)
+
+[node name="LineC" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 60, 80)
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(735, 322)
 color = Color(0.466667, 1, 1, 1)
 shadow_enabled = true
 texture = ExtResource("2_n16o7")
-texture_scale = 4.1
+texture_scale = 4.81
 
 [node name="Alchemist" parent="." instance=ExtResource("1_wygfh")]
 position = Vector2(804, 514)
@@ -76,18 +87,20 @@ rotation = 3.14159
 scale = Vector2(11.8892, 1)
 shape = SubResource("WorldBoundaryShape2D_ypy5y")
 
-[node name="Box" parent="." instance=ExtResource("3_uob1w")]
-position = Vector2(423, 402)
+[node name="Box1" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(590, 227)
 
 [node name="Box2" parent="." instance=ExtResource("3_uob1w")]
-position = Vector2(735, 288)
+position = Vector2(1251, 313)
 
 [node name="Box3" parent="." instance=ExtResource("3_uob1w")]
-position = Vector2(761, 771)
-object_sprite = ExtResource("5_u4bm3")
+position = Vector2(267, 694)
 
 [node name="Box4" parent="." instance=ExtResource("3_uob1w")]
-position = Vector2(1070, 512)
+position = Vector2(1339, 660)
 
 [node name="Box5" parent="." instance=ExtResource("3_uob1w")]
-position = Vector2(1514, 196)
+position = Vector2(969, 747)
+
+[node name="Box6" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(1693, 240)
