@@ -1,15 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://dipp0qhg043bv"]
+[gd_scene load_steps=5 format=3 uid="uid://dy2cht0s4pjbl"]
 
-[ext_resource type="Texture2D" uid="uid://3ejmj5cj1tr1" path="res://assets/art/Beaker.png" id="1_je6qc"]
+[ext_resource type="Script" path="res://scenes/Eyeballs.gd" id="1_f6pyw"]
+[ext_resource type="Texture2D" uid="uid://cf2laj2ifqvio" path="res://assets/art/Eyeball.png" id="2_13vwe"]
+[ext_resource type="Texture2D" uid="uid://d2fbft135rx2v" path="res://assets/art/Iris.png" id="3_f04od"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xosfh"]
-radius = 34.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gc1j1"]
+radius = 28.0
+height = 116.0
 
 [node name="AlchemistPlayer" type="CharacterBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_je6qc")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xosfh")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gc1j1")
+
+[node name="Eyeballs" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_f6pyw")
+
+[node name="Eye1" type="Sprite2D" parent="Eyeballs"]
+position = Vector2(-310, 0)
+texture = ExtResource("2_13vwe")
+
+[node name="Iris1" type="Sprite2D" parent="Eyeballs/Eye1"]
+position = Vector2(0, 110)
+texture = ExtResource("3_f04od")
+
+[node name="Eye2" type="Sprite2D" parent="Eyeballs"]
+position = Vector2(310, 0)
+texture = ExtResource("2_13vwe")
+
+[node name="Iris2" type="Sprite2D" parent="Eyeballs/Eye2"]
+position = Vector2(0, 110)
+texture = ExtResource("3_f04od")

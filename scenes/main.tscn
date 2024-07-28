@@ -1,14 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctht2u6agnlnw"]
+[gd_scene load_steps=10 format=3 uid="uid://ctht2u6agnlnw"]
 
 [ext_resource type="Script" path="res://scripts/Shadow Controller.gd" id="1_ss4xy"]
 [ext_resource type="PackedScene" uid="uid://bkpfwut8g54k4" path="res://scenes/Alchemist.tscn" id="1_wygfh"]
 [ext_resource type="Texture2D" uid="uid://b3odfnxib1x2" path="res://assets/Light Texture.png" id="2_n16o7"]
 [ext_resource type="PackedScene" uid="uid://pv52sqrinjvx" path="res://scenes/box.tscn" id="3_uob1w"]
-[ext_resource type="PackedScene" uid="uid://dipp0qhg043bv" path="res://scenes/AlchemistPlayer.tscn" id="5_i0fv1"]
+[ext_resource type="PackedScene" uid="uid://dy2cht0s4pjbl" path="res://scenes/AlchemistPlayer.tscn" id="5_i0fv1"]
+[ext_resource type="Shader" path="res://resources/monochrome.gdshader" id="6_q6ftr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lnnb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ypy5y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wgnlq"]
+shader = ExtResource("6_q6ftr")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ss4xy")
@@ -19,14 +23,13 @@ offset_top = -119.0
 offset_right = 2008.0
 offset_bottom = 1141.0
 mouse_filter = 2
-color = Color(0.470588, 0.470588, 0.470588, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(735, 322)
-color = Color(0.466667, 1, 1, 1)
+energy = 0.39
 shadow_enabled = true
 texture = ExtResource("2_n16o7")
-texture_scale = 4.81
+texture_scale = 2.54
 
 [node name="Alchemist" parent="." instance=ExtResource("1_wygfh")]
 position = Vector2(804, 514)
@@ -96,3 +99,12 @@ position = Vector2(1693, 240)
 
 [node name="AlchemistPlayer" parent="." instance=ExtResource("5_i0fv1")]
 position = Vector2(290, 233)
+
+[node name="Monochrome Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wgnlq")
+offset_left = -176.0
+offset_top = -59.0
+offset_right = 2057.0
+offset_bottom = 1145.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
