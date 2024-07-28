@@ -7,7 +7,7 @@ extends RigidBody2D
 @export var shadow_info: ShadowInfo
 @export var object_sprite : Texture2D
 
-var mouse_hovered : bool = false
+@export var mouse_hovered : bool = false
 
 
 func _ready() -> void:

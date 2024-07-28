@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Alchemist.gd" id="1_vi4nl"]
 [ext_resource type="Resource" uid="uid://jsrm6r3mwfuy" path="res://resources/alchemist_shadow.tres" id="2_uqgfq"]
 [ext_resource type="Texture2D" uid="uid://cgo743g38bfjs" path="res://assets/art/Alchemist.png" id="3_4gni2"]
-[ext_resource type="PackedScene" uid="uid://dbccu3anyj57e" path="res://scenes/shadow.tscn" id="4_kg5ry"]
+[ext_resource type="PackedScene" uid="uid://b8sbxxkqpibls" path="res://scenes/shadow.tscn" id="4_kg5ry"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aj7p"]
 radius = 38.5416

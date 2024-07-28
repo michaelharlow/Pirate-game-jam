@@ -13,7 +13,7 @@ var direction : Vector2 = Vector2(0.5,0.5)
 
 
 func _ready() -> void:
-	add_to_group("boxes")
+	pass
 
 
 func _physics_process(delta):

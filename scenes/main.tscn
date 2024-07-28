@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctht2u6agnlnw"]
+[gd_scene load_steps=8 format=3 uid="uid://ctht2u6agnlnw"]
 
 [ext_resource type="Script" path="res://scripts/Shadow Controller.gd" id="1_ss4xy"]
 [ext_resource type="PackedScene" uid="uid://bkpfwut8g54k4" path="res://scenes/Alchemist.tscn" id="1_wygfh"]
 [ext_resource type="Texture2D" uid="uid://b3odfnxib1x2" path="res://assets/Light Texture.png" id="2_n16o7"]
 [ext_resource type="PackedScene" uid="uid://pv52sqrinjvx" path="res://scenes/box.tscn" id="3_uob1w"]
+[ext_resource type="PackedScene" uid="uid://dipp0qhg043bv" path="res://scenes/AlchemistPlayer.tscn" id="5_i0fv1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lnnb"]
 
@@ -19,18 +20,6 @@ offset_right = 2008.0
 offset_bottom = 1141.0
 mouse_filter = 2
 color = Color(0.470588, 0.470588, 0.470588, 1)
-
-[node name="LineA" type="Line2D" parent="."]
-visible = false
-points = PackedVector2Array(0, 0, 0, 80)
-
-[node name="LineB" type="Line2D" parent="."]
-visible = false
-points = PackedVector2Array(0, 80, 60, 80)
-
-[node name="LineC" type="Line2D" parent="."]
-visible = false
-points = PackedVector2Array(0, 0, 60, 80)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(735, 322)
@@ -104,3 +93,6 @@ position = Vector2(969, 747)
 
 [node name="Box6" parent="." instance=ExtResource("3_uob1w")]
 position = Vector2(1693, 240)
+
+[node name="AlchemistPlayer" parent="." instance=ExtResource("5_i0fv1")]
+position = Vector2(290, 233)
