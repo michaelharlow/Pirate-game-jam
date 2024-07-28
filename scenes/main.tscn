@@ -1,19 +1,44 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=3 uid="uid://ctht2u6agnlnw"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://ctht2u6agnlnw"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://bkpfwut8g54k4" path="res://scenes/Alchemist.tscn" id="1_wygfh"]
 [ext_resource type="Texture2D" uid="uid://b3odfnxib1x2" path="res://assets/Light Texture.png" id="2_n16o7"]
 [ext_resource type="PackedScene" uid="uid://pv52sqrinjvx" path="res://scenes/box.tscn" id="3_uob1w"]
+[ext_resource type="Shader" path="res://scripts/screen_shader.gdshader" id="5_g0ig2"]
+[ext_resource type="PackedScene" uid="uid://dqfjh3wjbps72" path="res://scenes/eyeball.tscn" id="6_d4lhs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lnnb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ypy5y"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkrwt"]
+shader = ExtResource("5_g0ig2")
+
 [node name="Main" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+<<<<<<< Updated upstream
 offset_right = 1927.0
 offset_bottom = 1087.0
 color = Color(0.317647, 0.176471, 0.121569, 1)
+=======
+offset_left = -174.0
+offset_top = -119.0
+offset_right = 2008.0
+offset_bottom = 1141.0
+mouse_filter = 2
+color = Color(0.827862, 0.824535, 0.83174, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(735, 322)
+color = Color(0.466667, 1, 1, 1)
+shadow_enabled = true
+texture = ExtResource("2_n16o7")
+texture_scale = 2.9
+>>>>>>> Stashed changes
 
 [node name="Alchemist" parent="." instance=ExtResource("1_wygfh")]
 position = Vector2(804, 514)
@@ -80,4 +105,27 @@ position = Vector2(735, 288)
 position = Vector2(761, 771)
 
 [node name="Box4" parent="." instance=ExtResource("3_uob1w")]
+<<<<<<< Updated upstream
 position = Vector2(1070, 512)
+=======
+position = Vector2(1339, 660)
+
+[node name="Box5" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(969, 747)
+
+[node name="Box6" parent="." instance=ExtResource("3_uob1w")]
+position = Vector2(1693, 240)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_vkrwt")
+offset_left = -32.0
+offset_top = -14.0
+offset_right = 1987.0
+offset_bottom = 1102.0
+
+[node name="Eyes" parent="." instance=ExtResource("6_d4lhs")]
+position = Vector2(944, 860)
+scale = Vector2(0.1, 0.1)
+>>>>>>> Stashed changes

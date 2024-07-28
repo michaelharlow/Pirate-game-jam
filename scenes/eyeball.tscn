@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqfjh3wjbps72"]
+
+[ext_resource type="Texture2D" uid="uid://cfu4xm8l1xuod" path="res://assets/art/Eyeball.png" id="1_jl467"]
+[ext_resource type="Texture2D" uid="uid://c7mwfnklb0skr" path="res://assets/art/Iris.png" id="2_j5uf5"]
+[ext_resource type="Script" path="res://scripts/eyeball.gd" id="2_urcox"]
+
+[node name="Eyes" type="Node2D"]
+script = ExtResource("2_urcox")
+
+[node name="Eyeball" type="Sprite2D" parent="."]
+texture = ExtResource("1_jl467")
+
+[node name="Iris" type="Sprite2D" parent="Eyeball"]
+position = Vector2(30, 113)
+texture = ExtResource("2_j5uf5")
+
+[node name="Eyeball2" type="Sprite2D" parent="."]
+position = Vector2(546, 6)
+texture = ExtResource("1_jl467")
+
+[node name="Iris" type="Sprite2D" parent="Eyeball2"]
+position = Vector2(30, 113)
+texture = ExtResource("2_j5uf5")
