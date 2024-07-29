@@ -10,6 +10,6 @@ void fragment() {
 		COLOR = vec4(avg, avg/2.0, avg, 1.0);
 	}
 	else {
-		COLOR = vec4(avg, avg, avg*0.95, 1.0);
+		COLOR = vec4(avg*1.05, avg*1.05, avg*0.95, 1.0);
 	}
 	}
