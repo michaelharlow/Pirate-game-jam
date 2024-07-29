@@ -7,10 +7,8 @@ extends CharacterBody2D
 @export var speed: float = 400.0
 @export var acceleration: float = 10.0
 @export var flip_speed : float = 15
-@export var shadow_info: Resource
 
 var direction : Vector2 = Vector2(0.5,0.5)
-
 
 func _ready() -> void:
 	pass

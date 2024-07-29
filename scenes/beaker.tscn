@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://lacvswi6nvnh"]
+
+[ext_resource type="Texture2D" uid="uid://3ejmj5cj1tr1" path="res://assets/art/Beaker.png" id="1_xtqrd"]
+[ext_resource type="PackedScene" uid="uid://b8sbxxkqpibls" path="res://scenes/shadow.tscn" id="2_js3b7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4f5p"]
+radius = 179.36
+
+[node name="Beaker" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_xtqrd")
+
+[node name="Shadow" parent="." instance=ExtResource("2_js3b7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_d4f5p")

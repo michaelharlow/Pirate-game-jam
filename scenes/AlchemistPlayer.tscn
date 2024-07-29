@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy2cht0s4pjbl"]
+[gd_scene load_steps=6 format=3 uid="uid://dy2cht0s4pjbl"]
 
-[ext_resource type="Script" path="res://scenes/Eyeballs.gd" id="1_f6pyw"]
+[ext_resource type="Script" path="res://scripts/Eyeballs.gd" id="1_f6pyw"]
+[ext_resource type="Script" path="res://scripts/AlchemistPlayer.gd" id="1_uukmy"]
 [ext_resource type="Texture2D" uid="uid://cf2laj2ifqvio" path="res://assets/art/Eyeball.png" id="2_13vwe"]
 [ext_resource type="Texture2D" uid="uid://d2fbft135rx2v" path="res://assets/art/Iris.png" id="3_f04od"]
 
@@ -9,6 +10,7 @@ radius = 28.0
 height = 116.0
 
 [node name="AlchemistPlayer" type="CharacterBody2D"]
+script = ExtResource("1_uukmy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

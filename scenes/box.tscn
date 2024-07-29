@@ -1,23 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://pv52sqrinjvx"]
+[gd_scene load_steps=4 format=3 uid="uid://pv52sqrinjvx"]
 
-[ext_resource type="Script" path="res://scripts/box.gd" id="1_c6xvk"]
 [ext_resource type="Texture2D" uid="uid://cxdx2w5mav2n6" path="res://assets/art/icon.svg" id="1_myotc"]
-[ext_resource type="Resource" path="res://resources/box_shadow.tres" id="2_aqfif"]
-[ext_resource type="PackedScene" path="res://scenes/shadow.tscn" id="4_xnqay"]
+[ext_resource type="PackedScene" uid="uid://b8sbxxkqpibls" path="res://scenes/shadow.tscn" id="4_xnqay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcvu2"]
 size = Vector2(128, 128)
 
 [node name="Box" type="RigidBody2D"]
 gravity_scale = 0.0
-script = ExtResource("1_c6xvk")
-shadow_info = ExtResource("2_aqfif")
-object_sprite = ExtResource("1_myotc")
 
 [node name="ObjectCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rcvu2")
 
 [node name="Shadow" parent="." instance=ExtResource("4_xnqay")]
 
-[node name="ObjectSprite" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_myotc")
