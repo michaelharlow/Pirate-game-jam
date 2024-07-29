@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://lacvswi6nvnh"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://batehij8s7d3i"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://3ejmj5cj1tr1" path="res://assets/art/Beaker.png" id="1_xtqrd"]
 [ext_resource type="PackedScene" uid="uid://b8sbxxkqpibls" path="res://scenes/shadow.tscn" id="2_js3b7"]
