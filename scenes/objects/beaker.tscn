@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://lacvswi6nvnh"]
+[gd_scene load_steps=5 format=3 uid="uid://5brf7tifamxt"]
 
+[ext_resource type="Script" path="res://scripts/Shadow Object.gd" id="1_orvlo"]
 [ext_resource type="Texture2D" uid="uid://3ejmj5cj1tr1" path="res://assets/art/Beaker.png" id="1_xtqrd"]
 [ext_resource type="PackedScene" uid="uid://b8sbxxkqpibls" path="res://scenes/shadow.tscn" id="2_js3b7"]
 
@@ -8,6 +9,7 @@ radius = 179.36
 
 [node name="Beaker" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_orvlo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

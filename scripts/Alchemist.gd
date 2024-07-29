@@ -11,7 +11,7 @@ extends CharacterBody2D
 var direction : Vector2 = Vector2(0.5,0.5)
 
 func _ready() -> void:
-	pass
+	add_to_group("shadows")
 
 
 func _physics_process(delta):

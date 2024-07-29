@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctht2u6agnlnw"]
+[gd_scene load_steps=11 format=3 uid="uid://ctht2u6agnlnw"]
 
 [ext_resource type="Script" path="res://scripts/Shadow Controller.gd" id="1_ss4xy"]
 [ext_resource type="PackedScene" uid="uid://bkpfwut8g54k4" path="res://scenes/Alchemist.tscn" id="1_wygfh"]
 [ext_resource type="Texture2D" uid="uid://b3odfnxib1x2" path="res://assets/Light Texture.png" id="2_n16o7"]
+[ext_resource type="PackedScene" uid="uid://uwuv6x6aqme5" path="res://scenes/box.tscn" id="3_uob1w"]
 [ext_resource type="PackedScene" uid="uid://dy2cht0s4pjbl" path="res://scenes/AlchemistPlayer.tscn" id="5_i0fv1"]
 [ext_resource type="Shader" path="res://resources/monochrome.gdshader" id="6_q6ftr"]
-[ext_resource type="PackedScene" uid="uid://5brf7tifamxt" path="res://scenes/objects/beaker.tscn" id="7_suw2g"]
+[ext_resource type="PackedScene" path="res://scenes/beaker.tscn" id="7_suw2g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lnnb"]
 
@@ -17,12 +18,12 @@ shader = ExtResource("6_q6ftr")
 [node name="Main" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -174.0
 offset_top = -119.0
 offset_right = 2008.0
 offset_bottom = 1141.0
 mouse_filter = 2
-color = Color(0.643137, 0.643137, 0.643137, 1)
 
 [node name="Alchemist" parent="." instance=ExtResource("1_wygfh")]
 position = Vector2(804, 514)
@@ -72,12 +73,27 @@ rotation = 3.14159
 scale = Vector2(11.8892, 1)
 shape = SubResource("WorldBoundaryShape2D_ypy5y")
 
+[node name="Monochrome Shader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_wgnlq")
+offset_left = -176.0
+offset_top = -59.0
+offset_right = 2057.0
+offset_bottom = 1145.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
 [node name="Shadow Manager" type="Node" parent="."]
 script = ExtResource("1_ss4xy")
-shadow_length = 0.02
 
 [node name="AlchemistPlayer" parent="Shadow Manager" instance=ExtResource("5_i0fv1")]
 position = Vector2(290, 233)
+
+[node name="Box1" parent="Shadow Manager" instance=ExtResource("3_uob1w")]
+position = Vector2(590, 227)
+
+[node name="Box2" parent="Shadow Manager" instance=ExtResource("3_uob1w")]
+position = Vector2(1251, 313)
 
 [node name="PointLight2D" type="PointLight2D" parent="Shadow Manager"]
 position = Vector2(957, 146)
@@ -89,15 +105,3 @@ texture_scale = 2.54
 [node name="Beaker" parent="Shadow Manager" instance=ExtResource("7_suw2g")]
 position = Vector2(996, 343)
 scale = Vector2(0.25, 0.25)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="Monochrome Shader" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_wgnlq")
-offset_left = -176.0
-offset_top = -59.0
-offset_right = 2057.0
-offset_bottom = 1145.0
-mouse_filter = 2
-mouse_force_pass_scroll_events = false
