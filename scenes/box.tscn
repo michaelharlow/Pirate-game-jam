@@ -14,5 +14,5 @@ shape = SubResource("RectangleShape2D_rcvu2")
 
 [node name="Shadow" parent="." instance=ExtResource("4_xnqay")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ObjectSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_myotc")
