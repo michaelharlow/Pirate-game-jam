@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8sbxxkqpibls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q424s"]
+size = Vector2(127, 127)
+
+[node name="Shadow" type="Sprite2D"]
+modulate = Color(0, 0, 0, 0.584314)
+show_behind_parent = true
+position = Vector2(0, 62)
+offset = Vector2(0, 64)
+
+[node name="ShadowArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowArea"]
+position = Vector2(0.5, 64.5)
+shape = SubResource("RectangleShape2D_q424s")
